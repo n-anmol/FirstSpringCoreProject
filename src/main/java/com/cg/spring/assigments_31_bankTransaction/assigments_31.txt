@@ -1,0 +1,91 @@
+RIKON
+Customer Surname
+ISO
+Camera Mode
+PAN Number
+The 1st Input should be RIKON.
+The 2nd input should be the surname of the customer with a length greater than or equal to 3 and less than 5.
+The 3rd is the ISO value of the camera, and it should be either one of the values of 100, 200, 400 and 800. 
+The 4th is the camera mode, and it should be either "Auto" or "Manual". 
+The 5th one is the PAN number of the customer. The PAN number should contains 10 characters and also first five should be alphabets in Uppercase.
+The coupon should be created in the following format    1234567890 substring(str,0,5)
+A first three letters from RIKON, then the first letter of the customer's Anmol, ISO, then the first letter of the camera mode and appends with first 5 letters from PAN number.
+If the Company Name is other than the given choice then the output should be "<Company Name> is an invalid Company name".
+If the Customer Surname is other than the given choice then the output should be "<Customer Surname> is an invalid Customer Surname".
+If the ISO is other than the given choice then the output should be "<ISO> is an invalid ISO".
+If the Camera Mode is other than the given choice then the output should be "<Camera Mode> is an invalid Camera Mode".
+If the PAN number is other than the given format then the output should be "<PAN number> is an invalid PAN number".  
+
+
+===============================================
+2>IDBA Bank requires an application to automate the transaction process. The requirements are given below:
+The account number should be a 4 - digit number. Otherwise, it should throw a NumberFormatException with the message "Invalid account number."
+The transaction amount should be greater than 0.  Otherwise, it should throw an IllegalArgumentException with the message "Invalid transaction amount."
+The first digit of the account number should be 9. Otherwise, print the fifth character of the account number.
+9123
+9321
+9001
+With a Java program, accomplish the above requirement.
+Component Specification: BankTransaction Class
+Component Name
+Type (Class)
+Methods
+Responsibilities
+To validate the transactionAmount and accountNumber
+ BankTransaction
+public String performTransaction(String accountNumber, double transactionAmount)
+This method has two arguments : accountNumber and transactionAmount.
+If accountNumber is not a 4-digit number, it should throw a NumberFormatException and return the corresponding message.
+If transactionAmount is zero or less than zero, it should throw an IllegalArgumentException and return the corresponding message.
+If the first digit of the account number is not 9, then print the 5th digit, which in turn should throw a StringIndexOutOfBoundsException and return the message "Account number should start with 9."
+Otherwise, this method should return the message "Transaction completed."
+Note: The class and methods should be declared as public.
+In the UserInterface class, get the account number and transaction amount from the user. With these parameters, call the performTransaction method of the BankTransaction class and print the string returned as shown in the sample output.
+Use the exception handling mechanism in the performTransaction method to handle the exception. Use catch blocks for handling the exception. In the catch block, display the appropriate messages.
+Display the message <"Thanks for using this application"> at the end, regardless of accountNumber and transactionAmount amount.
+==================================
+3>Systa-G-Mart is an electronic appliance shop that sells appliances it manufactures, called "Systa" products. Since they are experiencing a huge demand for their products, they are providing 24 x 7 customer service. Customers can contact them through the toll-free number for any queries and complaints, and they will provide fast and free home service for their complaint products if it is within the warranty period. Nowadays, they are getting a lot of complaints about their products from various locations. It's very difficult for them to manually track the locations and identify from which products they are getting more complaints. They have planned to provide refunds and gift them with new products for the lucky customers. Help them automate the above task by developing an application in Java using streams.
+Requirements: 
+1.     Retrieve the customer complaint details for the specified product.
+    return customer.stream.filter(customer->custerm.getProduct().eqals(product)
+2.     Retrieve the customer complaint details which are from a particular area (address).
+3.     Check for lucky winners.  
+Component Specification: Customer (POJO Class)
+Type (Class)
+Attributes
+Methods
+Customer
+String name
+String address
+String pinCode
+String productType
+int warrantyPeriod
+Getters and Setters are given in the code skeleton.
+Component Specification: CustomerUtility
+Type (Class)
+Methods
+Responsibilities
+CustomerUtility
+public List<Customer> retrieveCustomerComplaintDetails_ByProductType(Stream<Customer> customerStream, String productType)
+From the provided stream of customer, separate the customer details which has the given product type and return the resultant customer details as a list.
+Note: productType is case insensitive
+CustomerUtility
+public Stream<Customer> retrieveCustomerComplaintDetails_ByAddress(Stream<Customer> customerStream, String address)
+From the given stream of customer, filter the customer details based on the user input address, and return the separated Stream of customer details.
+Note: address is case insensitive
+CustomerUtility
+public Stream<Customer> checkForLuckyWinners(Stream<Customer> customerDetails, int range) 
+From the provided stream of customer details, obtain the customer details based on the range given as the input parameter. 
+The main method in the UserInterface class gets the total number of customers and their details from the user, then creates an object for the Customer class and sets the values to the object, then stores all the objects in a list.
+Get the productType from the user. Invoke the retrieveCustomerComplaintDetails_ByProductType() method to find customers by the product type. If the customer complaints are available for the given productType, then print the available customers in the given format : <name> <address> <pinCode> <productType> <warrantyPeriod>. Else print "No complaints for this product".
+Get the address from the user. Invoke the retrieveCustomerComplaintDetails_ByAddress() method to find customers by address. If the customer complaints are available for the given address , then print the available customers in the given format : <name> <address> <pinCode> <productType> <warrantyPeriod>. Else print "No complaints from this address".
+Get the range from the user. Invoke the checkForLuckyWinners() method to print the list of lucky winners.
+Note:
+In the Sample Input / Output provided, the highlighted text in bold corresponds to the input given by the user, and the rest of the text represents the output.
+Ensure to follow the object-oriented specifications provided in the question description.
+Ensure to provide the names for classes, attributes, and methods as specified in the question description.
+Adhere to the code template, if provided.
+Assume that the number of customers needed to be entered into the list is always a valid positive number.
+Assume that the numbers of customers to be retrieved from the list is always a valid positive number.
+Assume that the customer details are always valid.
+Do not use System.exit(0) to terminate the code.
